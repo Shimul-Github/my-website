@@ -2,8 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import SectionTitle from "../../Components/sectionTitle/sectionTitle";
-import img1 from '../../assets/OrderOnline/1.jpg'
+import SectionTitle from "../../../Components/sectionTitle/sectionTitle";
+import img1 from '../../../assets/OrderOnline/1.jpg'
 
 const Catagory = () => {
   return (
@@ -13,7 +13,7 @@ const Catagory = () => {
         heading={"ORDER ONLINE"}
       ></SectionTitle>
       <Swiper
-        className="mySwiper swiper-h border-2 w-full"
+        className="mySwiper swiper-h "
         spaceBetween={20}
         pagination={{
           clickable: true,
@@ -22,10 +22,11 @@ const Catagory = () => {
       >
         <SwiperSlide>
             <img className="w-full" src={img1} alt="" />
+            <p className="text-center -m-16 text-3xl text-white">Pizzas</p>
         </SwiperSlide>
         <SwiperSlide>
             <Swiper
-            className="mySwiper2  h-52"
+            className="mySwiper2 h-52"
             direction={"vertical"}
             spaceBetween={20}
             pagination={{
@@ -34,18 +35,22 @@ const Catagory = () => {
             modules={[Pagination]}
           >
           <SwiperSlide>
-            <img className="w-full h-full" src={img1} alt="" />
+            <img className="w-full" src={img1} alt="" />
+           
           </SwiperSlide>
         <SwiperSlide>
-            <img className="w-full h-full" src={img1} alt="" />
+            <img className="w-full" src={img1} alt="" />
+            
             </SwiperSlide>
         </Swiper>
         </SwiperSlide>
         <SwiperSlide>
             <img className="w-full" src={img1} alt="" />
+             <p className="text-center -m-4 text-3xl text-white">Pizzas</p>
         </SwiperSlide>
         <SwiperSlide>
             <img className="w-full" src={img1} alt="" />
+            <p className="text-center -m-16 text-3xl text-white">Pizzas</p>
         </SwiperSlide>
       </Swiper>
     </section>

@@ -1,0 +1,34 @@
+
+[
+  {
+    "_id": "1a2b3c4d",
+    "name": "Ali's Kebab House",
+    "details": "Tender lamb kebabs with a smoky chargrilled flavor. Great portion size and served with fluffy rice.",
+    "rating": 4.5
+  },
+  {
+    "_id": "2b3c4d5e",
+    "name": "Istanbul Grill",
+    "details": "Delicious chicken doner with fresh vegetables and garlic sauce. The wrap was a bit soggy.",
+    "rating": 4.0
+  },
+  {
+    "_id": "3c4d5e6f",
+    "name": "Kebab King",
+    "details": "Beef kebabs were flavorful but slightly overcooked. The hot sauce was fantastic!",
+    "rating": 3.8
+  },
+  {
+    "_id": "4d5e6f7g",
+    "name": "Sultan's Delight",
+    "details": "Authentic Turkish Adana kebab, spicy and juicy. Great ambiance and fast service.",
+    "rating": 4.7
+  },
+  {
+    "_id": "5e6f7g8h",
+    "name": "Meat & Fire",
+    "details": "Mixed kebab platter with lamb, chicken, and kofte. Amazing flavor, slightly pricey though.",
+    "rating": 4.6
+  }
+]
+

@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navOptions = (
     <>
       <li>
-        <a>Homepage</a>
+        <Link to={'/'}><a >Homepage</a></Link>
       </li>
       <li>
-        <a>Portfolio</a>
+        <Link to={'/menus'}><a >Menus</a></Link>
       </li>
       <li>
         <a>About</a>
@@ -15,8 +16,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-black-600 opacity-60
-    shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -27,13 +27,13 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              
+              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h7"
-              /> 
+              />{" "}
             </svg>
           </div>
           <ul
@@ -45,7 +45,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">Sundarban Doner Kebap</a>
+        <a className="btn btn-ghost text-xl">Sundarban Restaurant</a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">

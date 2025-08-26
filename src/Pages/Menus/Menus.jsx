@@ -10,9 +10,7 @@ const Menus = () => {
          
       </Helmet>
       <Cover ></Cover>
-      {/* <PopularMenu></PopularMenu>
-      <PopularMenu></PopularMenu>
-      <PopularMenu></PopularMenu> */}
+      
     </div>
   );
 };

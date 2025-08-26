@@ -12,7 +12,7 @@ const slides = [
   coverImg2,
   coverImg3,
 ]
-console.log(slides)
+// console.log(slides)
 const Cover = () => {
   const [index, set] = useState(0)
   const transitions = useTransition(index, {
@@ -28,7 +28,7 @@ const Cover = () => {
     },
     exitBeforeEnter: true,
   })
-  console.log(index)
+//   console.log(index)
   return (
  
     //   <div
@@ -52,7 +52,7 @@ const Cover = () => {
     //     </div>
     //   </div>
     <>
-    <div className="flex fill center">
+    <div className="flex ">
       {transitions((style, i) => (
         <animated.div
           className={styles.bg}
@@ -66,9 +66,9 @@ const Cover = () => {
       ))}
         
     </div>
-    <div className='ml-[calc(100vh-50%)] mt-[calc(500px-30%)]'>
+    <div className='ml-[calc(100vh-50%)] mt-[calc(500px-40%)]'>
         <p className='uppercase text-7xl'>Hello Shimul</p>
-        <p className='text-center w-[500px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa alias tenetur deserunt est, hic eligendi ea ut quos impedit! Quia iure pariatur repudiandae ipsum ipsa cupiditate eligendi assumenda, vero qui numquam optio voluptas exercitationem dolorem aliquid necessitatibus quo voluptate totam? Quae at non adipisci possimus dolor libero ex sed.</p>
+        <p className='text-center w-[500px] text-xl text-yellow-400 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ipsa alias tenetur deserunt est, hic eligendi ea ut quos impedit! Quia iure pariatur repudiandae ipsum ipsa cupiditate eligendi assumenda, vero qui numquam optio voluptas exercitationem dolorem aliquid necessitatibus quo voluptate totam? Quae at non adipisci possimus dolor libero ex sed.</p>
     </div>
     </>
   

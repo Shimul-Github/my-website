@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/sectionTitle/sectionTitle";
 import MenuItem from "../../../Shared/MenuItem/MenuItem";
+import useMenu from "../../../hooks/useMenu";
+
 
 const PopularMenu = () => {
-  const [menu, setMenu] = useState([]);
-  useEffect(() => {
-    fetch("kebapData.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularItems = data.filter((item) => item.category === "Popular");
-        setMenu(popularItems);
-      });
-  }, []);
+  const [menu]=useMenu()
+  console.log(menu)
+  const popular=menu.filter(item=>item.popular === 'popular')
+ 
+  // const [menu, setMenu] = useState([]);
+  // useEffect(() => {
+  //   fetch("kebapData.json")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const popularItems = data.filter((item) => item.category === "Popular");
+  //       setMenu(popularItems);
+  //     });
+  // }, []);
   return (
     <section className="space-y-5">
       <SectionTitle
@@ -20,7 +26,7 @@ const PopularMenu = () => {
     
       ></SectionTitle>
       <div className="grid md:grid-cols-2 gap-4" >
-        {menu.map(item=><MenuItem 
+        {popular.map(item=><MenuItem 
         key={item.id}
         item={item}
         ></MenuItem>)}

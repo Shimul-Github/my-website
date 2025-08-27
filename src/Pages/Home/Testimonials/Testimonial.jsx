@@ -15,7 +15,7 @@ const Testimonial = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
-  console.log(reviews);
+  // console.log(reviews);
   return (
     <section className="m-5">
       <SectionTitle

@@ -11,8 +11,9 @@ const Navbar = () => {
         <Link to={'/menus'}>Menus</Link>
       </li>
       <li>
-        <a>About</a>
+        <Link to={'/order/pizza'}>Order Food</Link>
       </li>
+      
     </>
   );
   return (

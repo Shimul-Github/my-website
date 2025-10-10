@@ -9,7 +9,7 @@ import useMenu from "../../hooks/useMenu";
 import FoodCard from "../../Components/FoodCard/FoodCard";
 import OrderTab from "./OrderTab/OrderTab";
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+
 
 const OrderFood = () => {
   const categories = ['pizza','soups','desserts','drinks','salads','offered']

@@ -6,9 +6,10 @@ import "react-tabs/style/react-tabs.css";
 import Cover from "../../Shared/Cover/Cover";
 import { useState } from "react";
 import useMenu from "../../hooks/useMenu";
-import FoodCard from "../../Components/FoodCard/FoodCard";
+// import FoodCard from "../../Components/FoodCard/FoodCard";
 import OrderTab from "./OrderTab/OrderTab";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const OrderFood = () => {

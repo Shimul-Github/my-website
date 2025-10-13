@@ -7,3 +7,5 @@ Index.css file daisyui er plugin er niche lal dag acche
 Problems: 1.Order Online e vertical card show te problem ache. swiper-v dile problem, h-52 dile half show kore.
 
 Questions: What is Template String?
+
+ctrl j -- for opening terminal in vscode

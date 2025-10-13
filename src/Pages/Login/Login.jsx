@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+ 
 
 const Login = () => {
   // const [disabled, setDisabled] = useState(true);
@@ -13,6 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  console.log('state is ', location.state)
   useEffect(() => {
     generateCaptcha();
   }, []);

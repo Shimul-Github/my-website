@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const [cart] = useCart()
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -20,14 +23,17 @@ const Navbar = () => {
       <li>
         <Link to={"/order/pizza"}>Order Food</Link>
       </li>
+
       {user ? (
         <>
+          <span className="text-amber-700">{user?.displayName}</span>
           <button
             onClick={handleLogOut}
             className="btn btn-outline btn-success"
           >
             Log Out
           </button>
+          <img className="mt-2" src={user?.photoURL} alt="" />
         </>
       ) : (
         <>
@@ -37,6 +43,15 @@ const Navbar = () => {
         </>
       )}
 
+      {user?
+      <li>
+        <div className="indicator">
+          <span className="indicator-item badge badge-secondary">+{cart.length}</span>
+          <button className="btn">YourCart</button>
+        </div>
+      </li>
+      : ''  
+    }
       <li>
         <Link to={"signup"}>Be Our Client</Link>
       </li>
@@ -72,7 +87,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">Sundarban Restaurant</a>
+        <Link to='/' className="btn btn-ghost text-xl">Sundarban Restaurant</Link>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">

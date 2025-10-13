@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import Swal from 'sweetalert2'
 
-// Login Details:
+// Login Details: https://postimages.org/
 // sundorbon@admin.com, Sundorbon123&
+// sundorbon@client.com, Sundorbon1234& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 
 const Signup = () => {
-const { createUser,updateUserProfile } = useContext(AuthContext);
+const { createUser,updateUserProfile,loading } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -19,7 +20,7 @@ const { createUser,updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate()
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data.photoURL);
     createUser(data.email,data.password)
     .then(result =>{
         const loggedUser = result.user;
@@ -33,7 +34,7 @@ const { createUser,updateUserProfile } = useContext(AuthContext);
                     icon: "success",
                     draggable: true,
                   });
-           navigate('/ ')       
+           navigate('/')       
         })
         .catch(error => console.log(error))
         

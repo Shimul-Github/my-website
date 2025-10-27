@@ -6,7 +6,7 @@ import useCart from "../../hooks/useCart";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const [cart] = useCart()
+  const [cart] = useCart();
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -22,6 +22,9 @@ const Navbar = () => {
       </li>
       <li>
         <Link to={"/order/pizza"}>Order Food</Link>
+      </li>
+      <li>
+        <Link to={"dashboard"}>Dashboard</Link>
       </li>
 
       {user ? (
@@ -43,15 +46,20 @@ const Navbar = () => {
         </>
       )}
 
-      {user?
-      <li>
-        <div className="indicator">
-          <span className="indicator-item badge badge-secondary">+{cart.length}</span>
-          <button className="btn">YourCart</button>
-        </div>
-      </li>
-      : ''  
-    }
+      {user ? (
+        <li>
+          <Link to='/dashboard/cart'>
+            <div className="indicator">
+              <span className="indicator-item badge badge-secondary">
+                +{cart.length}
+              </span>
+              <button className="btn">YourCart</button>
+            </div>
+          </Link>
+        </li>
+      ) : (
+        ""
+      )}
       <li>
         <Link to={"signup"}>Be Our Client</Link>
       </li>
@@ -87,7 +95,9 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <Link to='/' className="btn btn-ghost text-xl">Sundarban Restaurant</Link>
+        <Link to="/" className="btn btn-ghost text-xl">
+          Sundarban Restaurant
+        </Link>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">

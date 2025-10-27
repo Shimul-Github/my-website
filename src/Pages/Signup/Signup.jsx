@@ -8,6 +8,8 @@ import Swal from 'sweetalert2'
 // Login Details: https://postimages.org/
 // sundorbon@admin.com, Sundorbon123&
 // sundorbon@client.com, Sundorbon1234& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
+// Sundorbon Client 1, sundorbon@client1.com, Sundorbon12345& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
+// Sundorbon Client 2, sundorbon@client2.com, Sundorbon123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 
 const Signup = () => {
 const { createUser,updateUserProfile,loading } = useContext(AuthContext);

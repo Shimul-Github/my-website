@@ -3,29 +3,34 @@ import { useLocation, useNavigate } from "react-router-dom";
 // import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe, _id } = item;
   const { user } = useAuth();
+  const [, refetch] = useCart();
   // console.log(user.email)
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(image);
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
 
-  const handleAddCart = (food) => {
+  // const handleAddCart = (food) => {
+  const handleAddCart = () => {
     // console.log(food,'clicked');
     if (user && user.email) {
-      console.log(user, user.email);
+      // console.log(user, user.email);
       const cartItem = {
         menuId: _id,
         email: user.email,
         name,
         price,
+        image
       };
       // Send to database to store in cartCollection
       // axios.post("http://localhost:5000/carts", cartItem)
-      axiosSecure.post("/carts", cartItem)
+      axiosSecure
+        .post("/carts", cartItem)
         .then((res) => {
           console.log(res.data);
           if (res.data.insertedId) {
@@ -34,6 +39,7 @@ const FoodCard = ({ item }) => {
               icon: "success",
               draggable: true,
             });
+            refetch();
           }
         })
         .catch((error) => console.log(error));
@@ -67,7 +73,8 @@ const FoodCard = ({ item }) => {
         <p>{recipe}</p>
         <div className="card-actions justify-end">
           <button
-            onClick={() => handleAddCart(item)}
+            // onClick={() => handleAddCart(item)}
+            onClick={handleAddCart}
             className="btn btn-primary"
           >
             Add to Cart

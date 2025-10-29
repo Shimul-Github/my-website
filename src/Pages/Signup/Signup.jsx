@@ -3,48 +3,59 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 // Login Details: https://postimages.org/
-// sundorbon@admin.com, Sundorbon123&
+// sundorbon@admin.com, Sundorbon123& , Sundorbon Admin, https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 // sundorbon@client.com, Sundorbon1234& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 // Sundorbon Client 1, sundorbon@client1.com, Sundorbon12345& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 // Sundorbon Client 2, sundorbon@client2.com, Sundorbon123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
+// Databse User, databaseUser@gmail.com, Database123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
+// Jwt Token User, jwttoken@gmail.com, Jwttoken123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 
 const Signup = () => {
-const { createUser,updateUserProfile,loading } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
+  const { createUser, updateUserProfile, loading } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
     handleSubmit,
-    reset
+    reset,
   } = useForm();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data.photoURL);
-    createUser(data.email,data.password)
-    .then(result =>{
-        const loggedUser = result.user;
-        console.log(loggedUser)
-        updateUserProfile(data.name,data.photoURL)
-        .then(()=>{
-          console.log('User Profile Info Updated Successfully')
-          reset()
-            Swal.fire({
-                    title: "Updated successfully!",
-                    icon: "success",
-                    draggable: true,
-                  });
-           navigate('/')       
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          // console.log('User Profile Info Updated Successfully')
+          // Send user credentials to database to store
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log('user created added to database')
+              reset();
+              Swal.fire({
+                title: "Updated successfully!",
+                icon: "success",
+                draggable: true,
+              });
+              navigate("/");
+            }
+          });
         })
-        .catch(error => console.log(error))
-        
-    })
+        .catch((error) => console.log(error));
+    });
+  };
 
-  }
-
-  
   //   const handleLogout = (e) => {
   //     e.preventDefault();
   //     const form = e.target;
@@ -56,9 +67,9 @@ const { createUser,updateUserProfile,loading } = useContext(AuthContext);
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Sundorbon Kebap | Register</title>
-    </Helmet>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -150,6 +161,7 @@ const { createUser,updateUserProfile,loading } = useContext(AuthContext);
                   className="btn btn-neutral mt-4"
                 ></input>
               </fieldset>
+              <SocialLogin></SocialLogin>
             </form>
             <p>
               If you are already a our Client, please{" "}

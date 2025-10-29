@@ -35,7 +35,7 @@ const Cart = () => {
   };
   return (
     <>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly space-y-6 my-4">
         <h1>Total Number of Orders:{cart.length}</h1>
         <h1>Total price:{totalPrice}</h1>
         <button>Pay</button>

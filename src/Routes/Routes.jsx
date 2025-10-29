@@ -8,6 +8,7 @@ import Signup from "../Pages/Signup/Signup";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Cart from "../Pages/Dashboard/Cart";
+import AllUsers from "../Layout/Dashboard/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
   },
   {
     path:'dashboard',
-    element:<Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children:[
       {
         path: "user-home",
@@ -65,6 +66,14 @@ export const router = createBrowserRouter([
         path: "my-booking",
         element: <Home></Home>,
       },
+      // Admin Routes
+      {
+        path:'allUsers',
+        element:<AllUsers></AllUsers>
+      },
+
+
+
     ]
   }
 ]);

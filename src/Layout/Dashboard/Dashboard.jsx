@@ -4,15 +4,15 @@ import { FaBook, FaEnvelope, FaList, FaPaypal, FaShoppingCart, FaUser, FaUtensil
 import { RiReservedLine } from "react-icons/ri";
 import { MdRateReview } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
-import useCart from "../../hooks/useCart";
+// import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
-  const [cart] = useCart();
+  // const [cart] = useCart();
 // Todo get isAdmin value form the database
-const isAdmin = true;
-
-
-
+// const isAdmin = true;
+const [isAdmin] = useAdmin();
+ 
   return (
     <>
  

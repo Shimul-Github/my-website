@@ -3,13 +3,19 @@ import React from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { FaTrash, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
-
+  
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/users");
+      // sokol user jokhon load korbe admin e so je load korche se admin kina tai token jachai korte hobe database er sathe.ei jonno token ta local storage theke nite hobe then database e pathate hobe. eta axios api te ache.
+      const res = await axiosSecure.get("/users"
+        // nicher ei header er ongso ta amra prothom use korle ekhon amader dorkar nei eta ekhon axiosSecure er interceptor die kore felte pari.
+        // {headers:{
+        //   authorization:`Bearer ${localStorage.getItem('access-token')}`}}
+    )
+        
       return res.data;
     },
   });

@@ -49,6 +49,7 @@ const Navbar = () => {
       {user ? (
         <li>
           <Link to='/dashboard/cart'>
+          
             <div className="indicator">
               <span className="indicator-item badge badge-secondary">
                 +{cart.length}

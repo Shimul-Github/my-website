@@ -15,6 +15,7 @@ import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 // Sundorbon Client 2, sundorbon@client2.com, Sundorbon123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 // Databse User, databaseUser@gmail.com, Database123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 // Jwt Token User, jwttoken@gmail.com, Jwttoken123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
+// For check verfiy Admin,verifyAdmin@gmail.com, VerifyAd123456& , https://i.postimg.cc/bNYQ9X86/ben-wicks-ODXOROj-Peds-unsplash.jpg
 
 const Signup = () => {
   const axiosPublic = useAxiosPublic();
@@ -28,7 +29,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data.photoURL);
+    // console.log(data.photoURL);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -79,6 +80,8 @@ const Signup = () => {
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
+              <p>Admin: sundorbon@admin.com, Sundorbon123&</p>
+              <p>Client: sundorbon@client1.com, Sundorbon12345&</p>
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

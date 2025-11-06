@@ -75,7 +75,10 @@ const Login = () => {
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
+
             </p>
+             <p>Admin: sundorbon@admin.com, Sundorbon123&</p>
+              <p>Client: sundorbon@client1.com, Sundorbon12345&</p>
             <h1 className="text-2xl font-extrabold">
               Don't have a ACCOUNT!!!--
               <Link className="underline text-amber-700" to="/signup">
